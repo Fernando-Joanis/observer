@@ -24,6 +24,6 @@ if __name__ == '__main__':
 
     sio.add_observer(upload)
 
-    sio.state = {'connect': True}
-    sio.state = {'connect': True}
-    sio.state = {'connect': False}
+    sio.connect()
+    sio.connect()
+    sio.disconnect()

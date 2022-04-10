@@ -51,4 +51,10 @@ class Socket(IObservable):
         for observer in self._observers:
             observer.update(self._state)
 
+    def connect(self):
+        self.state = {'connect': True}
+
+    def disconnect(self):
+        self.state = {'connect': False}
+
 
