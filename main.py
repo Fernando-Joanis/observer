@@ -9,11 +9,11 @@ class IObservable(ABC):
     def state(self): pass
 
     @abstractmethod
-    def add_observer(self, observer: IObserver) -> None:
+    def add_observer(self, observer) -> None:
         pass
 
     @abstractmethod
-    def remove_observer(self, observer: IObserver) -> None:
+    def remove_observer(self, observer) -> None:
         pass
 
     @abstractmethod
@@ -22,7 +22,7 @@ class IObservable(ABC):
 
 class Socket(IObservable):
     def __init__(self):
-        self._observers: List[IObserver] = []
+        self._observers: List = []
         self._state: Dict = {}
 
     @property
@@ -40,10 +40,10 @@ class Socket(IObservable):
     def reset_state(self):
         self._state = {}
 
-    def add_observer(self, observer: IObserver) -> None:
+    def add_observer(self, observer) -> None:
         self._observers.append(observer)
 
-    def remove_observer(self, observer: IObserver) -> None:
+    def remove_observer(self, observer) -> None:
         if observer in self._observers:
             self._observers.remove(observer)
 
